@@ -42,10 +42,11 @@ Array.from(buttons).forEach(function(elem) {
         event.stopPropagation();
         if (operatorClicked === false) {
             firstNumber.push(+event.target.textContent);
+            displayValue = firstNumber.join('');
         } else if (operator != 0 || operator != undefined) {
             secondNumber.push(+event.target.textContent);
+            displayValue = secondNumber.join('');
         }
-        displayValue = event.target.textContent;
         display.textContent = displayValue;
     })
 });
