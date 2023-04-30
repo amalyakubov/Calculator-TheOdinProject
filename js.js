@@ -58,7 +58,11 @@ calc.addEventListener('click', (event) => {
     event.stopPropagation();
     if (secondNumber[0] === 0 && operator === '/') {
         displayValue = 'ERROR: CANNOT DIVIDE BY 0';
-    } else {
+    } else if (firstNumber.length === 0 && secondNumber.length === 0) {
+        displayValue = 'Please enter the values first.';
+
+    } 
+    else {
         displayValue = operate(firstNumber, operator, secondNumber).toFixed(3);
     }
     display.textContent = displayValue;
