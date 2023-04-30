@@ -55,7 +55,11 @@ let operatorClicked = false;
 let calc = document.getElementById('calc');
 calc.addEventListener('click', (event) => {
     event.stopPropagation();
-    displayValue = operate(firstNumber, operator, secondNumber);
+    if (secondNumber[0] === 0 && operator === '/') {
+        displayValue = 'ERROR: CANNOT DIVIDE BY 0';
+    } else {
+        displayValue = operate(firstNumber, operator, secondNumber);
+    }
     display.textContent = displayValue;
 })
 
@@ -95,3 +99,4 @@ clear.addEventListener('click', (event) => {
     secondNumber = 0;
     display.textContent = '';
 })
+
