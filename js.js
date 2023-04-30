@@ -105,3 +105,4 @@ clear.addEventListener('click', (event) => {
     display.textContent = '';
 })
 
+let dot = document.getElementById('clear'); 
