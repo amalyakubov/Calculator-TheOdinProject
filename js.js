@@ -36,13 +36,22 @@ let display = document.querySelector('div');
 let displayValue;
 let buttons = document.body.getElementsByClassName('number');
 let operations = document.body.getElementsByClassName('operations');
+let timeDotClicked=  0;
 
 Array.from(buttons).forEach(function(elem) {
     elem.addEventListener('click', (event) => {
         event.stopPropagation();
         if (operatorClicked === false) {
+            if (event.target.textContent === '.') {
+                if (timeDotClicked === 0) {
+                    firstNumber.push('.');
+                    displayValue = firstNumber.join('');
+                    timeDotClicked = 1;
+                } 
+            } else {
             firstNumber.push(+event.target.textContent);
             displayValue = firstNumber.join('');
+            }
         } else if (operator != 0 || operator != undefined) {
             secondNumber.push(+event.target.textContent);
             displayValue = secondNumber.join('');
@@ -99,10 +108,12 @@ division.addEventListener('click', (event) => {
 let clear = document.getElementById('clear');
 clear.addEventListener('click', (event) => {
     event.stopPropagation();
-    firstNumber = 0;
+    firstNumber = [];
     operator = 0;
-    secondNumber = 0;
+    secondNumber = [];
+    timeDotClicked = 0;
+    operatorClicked = false;
     display.textContent = '';
 })
 
-let dot = document.getElementById('clear'); 
+let dot = document.getElementById('dot');
