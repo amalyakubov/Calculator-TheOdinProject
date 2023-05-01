@@ -116,4 +116,15 @@ clear.addEventListener('click', (event) => {
     display.textContent = '';
 })
 
-let dot = document.getElementById('dot');
+let remove = document.getElementById('remove');
+remove.addEventListener('click', (event) => {
+    if (secondNumber.length != 0) {
+        secondNumber.splice(secondNumber.length - 1, 1);
+        displayValue = secondNumber;
+        display.textContent = secondNumber.join('');
+    } else {
+        firstNumber.splice(firstNumber.length - 1, 1);
+        displayValue = firstNumber;
+        display.textContent = displayValue.join('');
+    }
+})
