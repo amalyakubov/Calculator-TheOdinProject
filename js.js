@@ -141,3 +141,20 @@ remove.addEventListener('click', (event) => {
         display.textContent = displayValue.join('');
     }
 })
+
+Array.from(buttons).forEach(element => {
+    element.addEventListener('click', (event) => {
+        event.stopPropagation();
+        function changeColor() {
+            element.style.backgroundColor = '#e39414';
+            element.style.border = '2.5px solid black';
+            element.style.color = 'black';
+            setTimeout(() => {
+                element.style.backgroundColor = '#ffb703';
+                element.style.color = 'black';
+                element.style.border = 'none';
+            }, 100);
+        }
+        changeColor();
+    })
+});
