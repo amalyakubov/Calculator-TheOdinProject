@@ -17,6 +17,8 @@ function divide(a, b) {
 let firstNumber = [];
 let operator;
 let secondNumber = [];
+let operated = false;
+let result = [];
 
 function operate(firstNumber, operator, secondNumber) {
     if (operator === '+') {
@@ -26,13 +28,13 @@ function operate(firstNumber, operator, secondNumber) {
     } else if (operator === '*') {
       return multiply(+firstNumber.join(''),+secondNumber.join(''));
     } else if (operator === '/') {
-      return divide(+firstNumber.join(''), +secondNumber.join(''));
+      return divide(+firstNumber.join(''), +secondNumber.join('')); 
     } else {
       return 'Unknown error';
     }
 }
 
-let display = document.querySelector('div');
+let display = document.getElementById('numbersDisplay');
 let displayValue;
 let buttons = document.body.getElementsByClassName('number');
 let operations = document.body.getElementsByClassName('operations');
@@ -48,6 +50,10 @@ Array.from(buttons).forEach(function(elem) {
                     displayValue = firstNumber.join('');
                     timeDotClicked = 1;
                 } 
+            } else if (operated === true && secondNumber.length != 0) {
+                secondNumber = [];
+                secondNumber.push(+event.target.textContent);
+                displayValue = secondNumber.join('');
             } else {
             firstNumber.push(+event.target.textContent);
             displayValue = firstNumber.join('');
@@ -71,8 +77,15 @@ calc.addEventListener('click', (event) => {
         displayValue = 'Please enter the values first.';
 
     } 
-    else {
+    else {;
         displayValue = operate(firstNumber, operator, secondNumber).toFixed(3);
+        operatorClicked = false;
+        firstNumber = [];
+        secondNumber = [];
+        operator = 0;
+        operated = true;
+        result = displayValue;
+        firstNumber.push(result);
     }
     display.textContent = displayValue;
 })

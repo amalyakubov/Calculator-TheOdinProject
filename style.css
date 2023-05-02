@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+body {
+    background-color: #f1f1f1;
+}
+
+.number, #remove {
+    border-radius: 35px;
+    width: 150px;
+    margin: 10px;
+    height: 100px;
+    border: 0;
+    font-family: 'Space Mono', monospace;;
+    font-size: 30px;
+}
+
+.number {
+    background-color: #ffb703;
+}
+
+#container {
+    display: flex;
+    height: 250px;
+    border: 3px solid black;
+    border-radius: 30px;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #8ecae6;
+}
+
+#numbersDisplay {
+    display: flex;
+    font-size: 60px;
+    font-family: 'Space Mono', monospace;;
+    margin-left: 20px;
+}
+
+.operations {
+    border-radius: 35px;
+    width: 200px;
+    margin: 10px;
+    height: 100px;
+    border: 0;
+    font-family: 'Space Mono', monospace;;
+    font-size: 30px;
+    background-color: #fb8500;
+}
+
+#maincontainer {
+    display: flex;
+    height: min-content;
+}
+
+#remove {
+    background-color: #283618;
+    color: white;
+}
+
+#operationscontainer {
+    align-items: center;
+}
