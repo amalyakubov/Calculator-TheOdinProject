@@ -158,3 +158,35 @@ Array.from(buttons).forEach(element => {
         changeColor();
     })
 });
+
+Array.from(operations).forEach(element => {
+    element.addEventListener('click', (event) => {
+        event.stopPropagation();
+        function changeColor() {
+            element.style.backgroundColor = '#FFC27D';
+            element.style.border = '2.5px solid black';
+            element.style.color = 'black';
+            setTimeout(() => {
+                element.style.backgroundColor = '#fb8500';
+                element.style.color = 'black';
+                element.style.border = 'none';
+            }, 100);
+        }
+        changeColor();
+    })
+});
+
+remove.addEventListener('click', (event) => {
+    event.stopPropagation();
+    function changeColor() {
+        remove.style.backgroundColor = '#445C28';
+        remove.style.border = '2.5px solid black';
+        remove.style.color = 'black';
+        setTimeout(() => {
+            remove.style.backgroundColor = '#283618';
+            remove.style.color = 'black';
+            remove.style.border = 'none';
+        }, 100);
+    }
+    changeColor();
+})
